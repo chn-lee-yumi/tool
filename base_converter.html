@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a calculator for hex/dec/oct/bin, which can convert hex to dec, dec to hex, etc.">
+    <title>Number Base Converter (Hex/Dec/Oct/Bin)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        select,
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Number Base Converter</h1>
+        <select id="fromBase">
+            <option value="16">Hexadecimal</option>
+            <option value="10">Decimal</option>
+            <option value="8">Octal</option>
+            <option value="2">Binary</option>
+        </select>
+        <input type="text" id="inputNumber" placeholder="Enter a number">
+        <button onclick="convertNumber()">Convert</button>
+        <select id="toBase">
+            <option value="16">Hexadecimal</option>
+            <option value="10" selected="selected">Decimal</option>
+            <option value="8">Octal</option>
+            <option value="2">Binary</option>
+        </select>
+        <input type="text" id="outputNumber" placeholder="Converted number" readonly>
+    </div>
+    <script>
+        function convertNumber() {
+            const fromBase = document.getElementById("fromBase").value;
+            const toBase = document.getElementById("toBase").value;
+            const inputNumber = document.getElementById("inputNumber").value;
+            let result = "";
+            try {
+                result = convertBase(inputNumber, fromBase, toBase);
+                document.getElementById("outputNumber").value = result;
+            } catch (error) {
+                console.log(error);
+                document.getElementById("outputNumber").value = "Invalid input";
+            }
+        }
+        function convertBase(number, fromBase, toBase) {
+            const parsedNumber = parseInt(number, fromBase);
+            return parsedNumber.toString(toBase).toUpperCase();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTF-8 Encoding/Decoding</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UTF-8 Encoding/Decoding</h1>
+        <textarea id="inputText" placeholder="Enter text"></textarea>
+        <button onclick="encodeText()">UTF-8 Encode</button>
+        <button onclick="decodeText()">UTF-8 Decode</button>
+        <textarea id="outputResult" placeholder="Result" readonly></textarea>
+    </div>
+    <script>
+        function encodeText() {
+            const inputText = document.getElementById("inputText").value;
+            const outputResult = document.getElementById("outputResult");
+
+            try {
+                outputResult.value = encodeURIComponent(inputText);
+            } catch (error) {
+                outputResult.value = "Error in encoding";
+            }
+        }
+        function decodeText() {
+            const inputText = document.getElementById("inputText").value;
+            const outputResult = document.getElementById("outputResult");
+
+            try {
+                outputResult.value = decodeURIComponent(inputText);
+            } catch (error) {
+                outputResult.value = "Error in decoding";
+            }
+        }
+    </script>
+</body>
+</html>
