@@ -1,5 +1,10 @@
 https://tool.gcc.ac.cn/index.html
-https://tool.gcc.ac.cn/ascii.html
-https://tool.gcc.ac.cn/base64.html
-https://tool.gcc.ac.cn/base_converter.html
-https://tool.gcc.ac.cn/utf8.html
+https://tool.gcc.ac.cn/index_zh.html
+https://tool.gcc.ac.cn/en/ascii.html
+https://tool.gcc.ac.cn/en/base64.html
+https://tool.gcc.ac.cn/en/base_converter.html
+https://tool.gcc.ac.cn/en/utf8.html
+https://tool.gcc.ac.cn/zh/ascii.html
+https://tool.gcc.ac.cn/zh/base64.html
+https://tool.gcc.ac.cn/zh/base_converter.html
+https://tool.gcc.ac.cn/zh/utf8.html

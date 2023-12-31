@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASCII Code Converter</title>
-    <meta name="description" content="ASCII Code Converter. Convert ASCII code/character online. ASCII Code Calculator.">
+    <title>UTF-8 编码/解码</title>
+    <meta name="description" content="UTF-8 在线编码和解码。">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,7 +29,7 @@
             color: #333;
             margin-bottom: 20px;
         }
-        input,
+        textarea,
         button {
             width: 100%;
             padding: 10px;
@@ -51,26 +51,31 @@
 </head>
 <body>
     <div class="container">
-        <h1>ASCII Code Converter</h1>
-        <input type="text" id="inputValue" placeholder="Enter a character or ASCII code">
-        <button onclick="convertASCII()">Convert</button>
-        <input type="text" id="outputResult" placeholder="Converted result" readonly>
+        <h1>UTF-8 编码/解码</h1>
+        <textarea id="inputText" placeholder="请输入内容"></textarea>
+        <button onclick="encodeText()">UTF-8 编码</button>
+        <button onclick="decodeText()">UTF-8 解码</button>
+        <textarea id="outputResult" placeholder="结果" readonly></textarea>
     </div>
     <script>
-        function convertASCII() {
-            const inputValue = document.getElementById("inputValue").value;
-            let result = "";
+        function encodeText() {
+            const inputText = document.getElementById("inputText").value;
+            const outputResult = document.getElementById("outputResult");
+
             try {
-                if (inputValue.length === 1) {
-                    result = "ASCII Code: " + inputValue.charCodeAt(0);
-                } else if (!isNaN(inputValue)) {
-                    result = "Character: " + String.fromCharCode(inputValue);
-                } else {
-                    result = "Invalid input";
-                }
-                document.getElementById("outputResult").value = result;
+                outputResult.value = encodeURIComponent(inputText);
             } catch (error) {
-                document.getElementById("outputResult").value = "Invalid input";
+                outputResult.value = "Error in encoding";
+            }
+        }
+        function decodeText() {
+            const inputText = document.getElementById("inputText").value;
+            const outputResult = document.getElementById("outputResult");
+
+            try {
+                outputResult.value = decodeURIComponent(inputText);
+            } catch (error) {
+                outputResult.value = "Error in decoding";
             }
         }
     </script>

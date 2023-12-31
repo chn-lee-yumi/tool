@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64在线编解码</title>
+    <meta name="description" content="Base64在线编码和解码（加密和解密）。Base64在线加解密。Base64编码和解码原理。">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 2px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Base64 在线编码/解码 (加密/解密)</h1>
+    <textarea id="inputText" placeholder="输入需要编码或解码的内容"></textarea>
+    <button id="encodeButton">编码</button>
+    <button id="decodeButton">解码</button>
+    <textarea id="outputText" placeholder="结果会显示在这里" readonly></textarea>
+    <h2>Base64编码原理</h2>
+    <ol>
+        <li>划分数据：将需要编码的二进制数据划分为每6比特一组的块。</li>
+        <li>转换为整数：将每个6比特的块转换为一个整数值，取值范围为0到63。</li>
+        <li>映射到字符集：使用一个包含64个字符的字符集，将每个整数值映射到相应的字符。</li>
+        <li>
+            填充：如果原始数据的长度不是3的倍数，会在末尾添加1到2个额外的字节，然后在Base64编码中使用一个或两个等号字符（'='）进行填充，以确保编码后的数据长度是4的倍数。
+        </li>
+    </ol>
+    <h2>Base64解码原理</h2>
+    <ol>
+        <li>字符转换为整数：将Base64编码的字符映射回整数值。</li>
+        <li>整数转换为二进制块：将整数值转换回6比特的二进制块。</li>
+        <li>组合块：将所有的二进制块组合在一起，形成原始的二进制数据。</li>
+    </ol>
+    <h2>Base64编码和解码示例</h2>
+    <p>
+        原始数据：<code>Hello, World!</code><br>
+        ASCII码：<code>72 101 108 108 111 44 32 87 111 114 108 100 33</code><br>
+        二进制数据：<code>01001000 01100101 01101100 01101100 01101111 00101100 00100000 01010111 01101111 01110010 01101100 01100100
+        00100001</code><br>
+        Base64编码：<code>SGVsbG8sIFdvcmxkIQ==</code>
+    </p>
+    <h2>相关工具</h2>
+    <ul>
+        <li><a href="ascii.html" target="_blank">ASCII 代码转换</a></li>
+        <li><a href="base_converter.html" target="_blank">进制转换</a></li>
+    </ul>
+</div>
+<script>
+        const encodeButton = document.getElementById('encodeButton');
+        const decodeButton = document.getElementById('decodeButton');
+        const inputText = document.getElementById('inputText');
+        const outputText = document.getElementById('outputText');
+        encodeButton.addEventListener('click', () => {
+            const input = inputText.value;
+            const encoded = btoa(input);
+            outputText.value = encoded;
+        });
+        decodeButton.addEventListener('click', () => {
+            const encoded = inputText.value;
+            const decoded = atob(encoded);
+            outputText.value = decoded;
+        });
+</script>
+</body>
+</html>

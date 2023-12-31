@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Base64 Encode/Decode</title>
+    <meta name="description" content="Encode/Decode (Encrypt/Decrypt) base64 online. Base64 Encoding and Decoding Principles.">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 2px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Online Base64 Encode/Decode (Encrypt/Decrypt)</h1>
+    <textarea id="inputText" placeholder="Enter text to encode or decode"></textarea>
+    <button id="encodeButton">Encode</button>
+    <button id="decodeButton">Decode</button>
+    <textarea id="outputText" placeholder="Result will appear here" readonly></textarea>
+    <h2>Base64 Encoding Principles</h2>
+    <ol>
+        <li>Partition Data: Divide the binary data to be encoded into blocks of 6 bits each.</li>
+        <li>Convert to Integers: Convert each 6-bit block into an integer value ranging from 0 to 63.</li>
+        <li>Map to Character Set: Use a character set with 64 characters, mapping each integer value to the corresponding character.</li>
+        <li>Padding: If the original data's length is not a multiple of 3, add 1 to 2 additional bytes at the end and use one or two equal signs ('=')
+            in the Base64 encoding to ensure a length that is a multiple of 4.
+        </li>
+    </ol>
+    <h2>Base64 Decoding Principles</h2>
+    <ol>
+        <li>Character to Integer: Map Base64 encoded characters back to integer values.</li>
+        <li>Integer to Binary Blocks: Convert integer values back to 6-bit binary blocks.</li>
+        <li>Combine Blocks: Assemble all binary blocks to form the original binary data.</li>
+    </ol>
+    <h2>Base64 Encoding and Decoding Example</h2>
+    <p>
+        Original Data: <code>Hello, World!</code><br>
+        ASCII Codes: <code>72 101 108 108 111 44 32 87 111 114 108 100 33</code><br>
+        Binary Data: <code>01001000 01100101 01101100 01101100 01101111 00101100 00100000 01010111 01101111 01110010 01101100 01100100 00100001</code><br>
+        Base64 Encoding: <code>SGVsbG8sIFdvcmxkIQ==</code>
+    </p>
+    <h2>Related Tools</h2>
+    <ul>
+        <li><a href="ascii.html" target="_blank">ASCII Code Conversion</a></li>
+        <li><a href="base_converter.html" target="_blank">Number Base Conversion</a></li>
+    </ul>
+</div>
+<script>
+        const encodeButton = document.getElementById('encodeButton');
+        const decodeButton = document.getElementById('decodeButton');
+        const inputText = document.getElementById('inputText');
+        const outputText = document.getElementById('outputText');
+        encodeButton.addEventListener('click', () => {
+            const input = inputText.value;
+            const encoded = btoa(input);
+            outputText.value = encoded;
+        });
+        decodeButton.addEventListener('click', () => {
+            const encoded = inputText.value;
+            const decoded = atob(encoded);
+            outputText.value = decoded;
+        });
+</script>
+</body>
+</html>
