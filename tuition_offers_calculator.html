@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学费优惠计算器</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #0066cc;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>学费优惠计算器</h1>
+    
+    <label for="exchangeRate">汇率：</label>
+    <input type="number" id="exchangeRate" step="0.0001" oninput="calculate()">
+    
+    <br>
+    
+    <label for="billAmount">账单金额（到账澳币）：</label>
+    <input type="number" id="billAmount" step="0.01" oninput="calculate()">
+    
+    <div id="result">
+        <p>手续费: <span id="fee">0</span></p>
+        <p>满减: <span id="discount">0</span></p>
+        <p>实交人民币: <span id="rmb">0</span></p>
+        <p>等价汇率: <span id="equivalentRate">0</span></p>
+        <p>等价汇率系数: <span id="equivalentRateCoefficient">0</span></p>
+    </div>
+
+    <a href="https://www.unionpayintl.com/cn/rate/" target="_blank">银联汇率查询</a>
+
+    <script>
+        function calculate() {
+            let exchangeRate = parseFloat(document.getElementById('exchangeRate').value);
+            let billAmount = parseFloat(document.getElementById('billAmount').value);
+
+            let fee = 0.8 + billAmount * 0.022;
+            let discount = (billAmount + fee >= 4000) ? 100 : ((billAmount + fee >= 800) ? 20 : 0);
+            let realRMB = exchangeRate * 1.01 * (billAmount - (discount - 0.8) / 1.022);
+            let equivalentRate = exchangeRate * 1.01 * (1 - (discount - 0.8) / billAmount / 1.022);
+            let equivalentRateCoefficient = 1.01 * (1 - (discount - 0.8) / billAmount / 1.022);
+
+            document.getElementById('fee').innerText = fee.toFixed(2);
+            document.getElementById('discount').innerText = discount.toFixed(2);
+            document.getElementById('rmb').innerText = realRMB.toFixed(2);
+            document.getElementById('equivalentRate').innerText = equivalentRate.toFixed(4);
+            document.getElementById('equivalentRateCoefficient').innerText = equivalentRateCoefficient.toFixed(6);
+        }
+    </script>
+</body>
+</html>
+
