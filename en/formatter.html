@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An online code formatter, supports JavaScript and HTML. Online JS Formatter. Online HTML Formatter.">
+    <title>Online Code Formatter</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        textarea {
+            width: 80%;
+            height: 300px;
+            margin: 10px;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #outputCode {
+            width: 80%;
+            height: 300px;
+            margin: 10px;
+            padding: 10px;
+            font-size: 14px;
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select {
+            padding: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Code Formatter</h1>
+    <label for="language">Select language:</label>
+    <select id="language">
+        <option value="js">JavaScript</option>
+        <option value="html">HTML</option>
+    </select>
+    <br>
+    <textarea id="inputCode" placeholder="Enter your code here..."></textarea>
+    <br>
+    <button onclick="formatCode()">Format Code</button>
+    <button onclick="copyToClipboard()">Copy Output</button>
+    <br>
+    <textarea id="outputCode" placeholder="Formatted code will appear here..." readonly></textarea>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.13.5/beautify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.13.5/beautify-html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.13.5/beautify-css.min.js"></script>
+    <script>
+        var options = {
+            "indent_size": "4",
+            "indent_char": " ",
+            "max_preserve_newlines": "2",
+            "preserve_newlines": true,
+            "keep_array_indentation": false,
+            "break_chained_methods": false,
+            "indent_scripts": "normal",
+            "brace_style": "collapse",
+            "space_before_conditional": true,
+            "unescape_strings": false,
+            "jslint_happy": false,
+            "end_with_newline": false,
+            "wrap_line_length": "0",
+            "indent_inner_html": false,
+            "comma_first": false,
+            "e4x": false,
+            "indent_empty_lines": false
+        };
+
+        function formatCode() {
+            var inputCode = document.getElementById('inputCode').value;
+            var selectedLanguage = document.getElementById('language').value;
+            var outputCode;
+
+            if (selectedLanguage === 'js') {
+                outputCode = beautifyJavaScript(inputCode);
+            } else if (selectedLanguage === 'html') {
+                outputCode = beautifyHTML(inputCode);
+            }
+
+            document.getElementById('outputCode').value = outputCode;
+        }
+
+        function beautifyJavaScript(code) {
+            return js_beautify(code, options);
+        }
+
+        function beautifyHTML(code) {
+            return html_beautify(code, options);
+        }
+
+        function copyToClipboard() {
+            var outputTextarea = document.getElementById('outputCode');
+            outputTextarea.select();
+            document.execCommand('copy');
+        }
+    </script>
+</body>
+
+</html>

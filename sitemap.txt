@@ -6,9 +6,11 @@ https://tool.gcc.ac.cn/en/base_converter.html
 https://tool.gcc.ac.cn/en/utf8.html
 https://tool.gcc.ac.cn/en/word_count.html
 https://tool.gcc.ac.cn/en/lcm.html
+https://tool.gcc.ac.cn/en/formatter.html
 https://tool.gcc.ac.cn/zh/ascii.html
 https://tool.gcc.ac.cn/zh/base64.html
 https://tool.gcc.ac.cn/zh/base_converter.html
 https://tool.gcc.ac.cn/zh/utf8.html
 https://tool.gcc.ac.cn/zh/word_count.html
 https://tool.gcc.ac.cn/zh/lcm.html
+https://tool.gcc.ac.cn/zh/formatter.html
