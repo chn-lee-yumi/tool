@@ -78,10 +78,10 @@
             let equivalentRate = exchangeRate * 1.01 * (1 - (discount - 0.8) / billAmount / 1.022);
             let equivalentRateCoefficient = 1.01 * (1 - (discount - 0.8) / billAmount / 1.022);
 
-            document.getElementById('fee').innerText = fee.toFixed(2);
-            document.getElementById('aud').innerText = aud.toFixed(2);
-            document.getElementById('discount').innerText = discount.toFixed(2);
-            document.getElementById('audReal').innerText = audReal.toFixed(2);
+            document.getElementById('fee').innerText = fee;
+            document.getElementById('aud').innerText = aud;
+            document.getElementById('discount').innerText = discount;
+            document.getElementById('audReal').innerText = audReal;
             document.getElementById('rmbReal').innerText = rmbReal;
             document.getElementById('rmb').innerText = realRMB.toFixed(2);
             document.getElementById('equivalentRate').innerText = equivalentRate.toFixed(4);
