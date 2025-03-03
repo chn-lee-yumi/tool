@@ -57,12 +57,12 @@
         <p>满减（澳币）: <span id="discount">0</span></p>
         <p>银行卡扣费（澳币）: <span id="audReal">0</span></p>
         <p>银行卡扣费（人民币）: <span id="rmbReal">0</span></p>
-        <p>返现（澳币，0.07%）: <span id="audReturn">0</span></p>
+        <p>返现（澳币，0.7%）: <span id="audReturn">0</span></p>
         <p>真实返现（澳币）: <span id="audRealReturn">0</span></p>
-        <p>真实返现率（澳币）: <span id="audRealReturnRate">0</span></p>
+        <p>真实返现率（澳币）: <span id="audRealReturnRate">0%</span></p>
         <p>实交（人民币）: <span id="rmb">0</span></p>
         <p>等价汇率: <span id="equivalentRate">0</span></p>
-        <p>等价汇率系数: <span id="equivalentRateCoefficient">0</span></p>
+        <p>等价汇率系数: <span id="equivalentRateCoefficient">0%</span></p>
     </div>
 
     <a href="https://www.unionpayintl.com/cn/rate/" target="_blank">银联汇率查询</a>
@@ -80,10 +80,10 @@
             let audReal = aud - discount;
             let rmbReal = Number((audReal * exchangeRate).toFixed(2));
             let audReturn = Number((billAmount * returnRate).toFixed(2));
-            let audRealReturn = Number((fee * returnRate * audReal / aud).toFixed(2));
+            let audRealReturn = Number((audReturn * audReal / aud).toFixed(2));
             let audRealReturnRate = audRealReturn / audReal;
-            let rmbReturn = Number((audRealReturn * fee).toFixed(2));
-            let rmb = rmbReal - rmbReturn;
+            let rmbReturn = Number((audRealReturn * exchangeRate).toFixed(2));
+            let rmb = Number((rmbReal - rmbReturn).toFixed(2));
             let equivalentRate = rmb / billAmount;
             let equivalentRateCoefficient = equivalentRate / exchangeRate;
 
@@ -94,11 +94,11 @@
             document.getElementById('rmbReal').innerText = rmbReal.toFixed(2);
             document.getElementById('audReturn').innerText = audReturn.toFixed(2);
             document.getElementById('audRealReturn').innerText = audRealReturn.toFixed(2);
-            document.getElementById('audRealReturnRate').innerText = audRealReturnRate.toFixed(4);
+            document.getElementById('audRealReturnRate').innerText = (audRealReturnRate * 100).toFixed(4) + "%";
             document.getElementById('rmbReturn').innerText = rmbReturn.toFixed(2);
             document.getElementById('rmb').innerText = rmb.toFixed(2);
             document.getElementById('equivalentRate').innerText = equivalentRate.toFixed(4);
-            document.getElementById('equivalentRateCoefficient').innerText = equivalentRateCoefficient.toFixed(6);
+            document.getElementById('equivalentRateCoefficient').innerText = (equivalentRateCoefficient * 100).toFixed(4) + "%";
         }
     </script>
 </body>
