@@ -69,11 +69,11 @@
             let exchangeRate = parseFloat(document.getElementById('exchangeRate').value);
             let billAmount = parseFloat(document.getElementById('billAmount').value);
 
-            let fee = 0.8 + billAmount * 0.022;
+            let fee = Number((0.8 + billAmount * 0.022).toFixed(2));
             let aud = billAmount + fee;
             let discount = (billAmount + fee >= 4000) ? 100 : ((billAmount + fee >= 800) ? 20 : 0);
             let audReal = aud - discount;
-            let rmbReal = audReal * exchangeRate;
+            let rmbReal = Number((audReal * exchangeRate).toFixed(2));
             let realRMB = exchangeRate * 1.01 * (billAmount - (discount - 0.8) / 1.022);
             let equivalentRate = exchangeRate * 1.01 * (1 - (discount - 0.8) / billAmount / 1.022);
             let equivalentRateCoefficient = 1.01 * (1 - (discount - 0.8) / billAmount / 1.022);
