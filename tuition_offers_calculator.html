@@ -10,7 +10,8 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
-            margin: 30px;
+            margin: 10px;
+            display: flex;
         }
 
         h1 {
@@ -42,6 +43,7 @@
     </script>
 </head>
 <body>
+    <div style="max-width: 600px;">
     <h1>学费优惠计算器</h1>
     
     <label for="exchangeRate">AUD/CNY 汇率：</label>
@@ -75,7 +77,9 @@
     <a href="https://www.unionpayintl.com/cn/rate/" target="_blank">银联汇率查询</a>
     
     <a href="https://www.chinapayments.com/bpay-unionpay" target="_blank">交学费网址</a>
-
+        
+    </div>
+    
     <script>
         function calculate() {
             let surchargeRate = 0.022;
