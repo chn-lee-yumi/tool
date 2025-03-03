@@ -49,14 +49,17 @@
     <br>
     
     <label for="billAmount">账单金额（到账澳币）：</label>
-    <input type="number" id="billAmount" step="0.01" oninput="calculate()">
+    <input type="number" id="billAmount" value=0 step="0.01" oninput="calculate()">
     
     <div id="result">
-        <p>手续费（澳币）: <span id="fee">0</span></p>
+        <p>手续费（澳币，2.2%）: <span id="fee">0</span></p>
         <p>需交（澳币）: <span id="aud">0</span></p>
         <p>满减（澳币）: <span id="discount">0</span></p>
         <p>银行卡扣费（澳币）: <span id="audReal">0</span></p>
         <p>银行卡扣费（人民币）: <span id="rmbReal">0</span></p>
+        <p>返现（澳币，0.07%）: <span id="audReturn">0</span></p>
+        <p>真实返现（澳币）: <span id="audRealReturn">0</span></p>
+        <p>真实返现率（澳币）: <span id="audRealReturnRate">0</span></p>
         <p>实交（人民币）: <span id="rmb">0</span></p>
         <p>等价汇率: <span id="equivalentRate">0</span></p>
         <p>等价汇率系数: <span id="equivalentRateCoefficient">0</span></p>
@@ -66,24 +69,32 @@
 
     <script>
         function calculate() {
+            let surchargeRate = 0.022;
+            let returnRate = 0.007;
             let exchangeRate = parseFloat(document.getElementById('exchangeRate').value);
             let billAmount = parseFloat(document.getElementById('billAmount').value);
 
-            let fee = Number((0.8 + billAmount * 0.022).toFixed(2));
+            let fee = Number((0.8 + billAmount * surchargeRate).toFixed(2));
             let aud = billAmount + fee;
-            let discount = (billAmount + fee >= 4000) ? 100 : ((billAmount + fee >= 800) ? 20 : 0);
+            let discount = (billAmount + fee >= 4000) ? 100 : 0;
             let audReal = aud - discount;
             let rmbReal = Number((audReal * exchangeRate).toFixed(2));
-            let realRMB = exchangeRate * 1.01 * (billAmount - (discount - 0.8) / 1.022);
-            let equivalentRate = exchangeRate * 1.01 * (1 - (discount - 0.8) / billAmount / 1.022);
-            let equivalentRateCoefficient = 1.01 * (1 - (discount - 0.8) / billAmount / 1.022);
+            let audReturn = Number((billAmount * returnRate).toFixed(2));
+            let audRealReturn = Number((fee * returnRate * audReal / aud).toFixed(2));
+            let audRealReturnRate = audRealReturn / audReal;
+            let rmbReturn = Number((audRealReturn * fee).toFixed(2));
+            let rmb = rmbReal - rmbReturn;
+            let equivalentRate = rmb / billAmount;
+            let equivalentRateCoefficient = equivalentRate / exchangeRate;
 
-            document.getElementById('fee').innerText = fee;
-            document.getElementById('aud').innerText = aud;
-            document.getElementById('discount').innerText = discount;
-            document.getElementById('audReal').innerText = audReal;
-            document.getElementById('rmbReal').innerText = rmbReal;
-            document.getElementById('rmb').innerText = realRMB.toFixed(2);
+            document.getElementById('fee').innerText = fee.toFixed(2);
+            document.getElementById('aud').innerText = aud.toFixed(2);
+            document.getElementById('discount').innerText = discount.toFixed(2);
+            document.getElementById('audReal').innerText = audReal.toFixed(2);
+            document.getElementById('rmbReal').innerText = rmbReal.toFixed(2);
+            document.getElementById('audReturn').innerText = audReturn.toFixed(2);
+            document.getElementById('rmbReturn').innerText = rmbReturn.toFixed(2);
+            document.getElementById('rmb').innerText = rmb.toFixed(2);
             document.getElementById('equivalentRate').innerText = equivalentRate.toFixed(4);
             document.getElementById('equivalentRateCoefficient').innerText = equivalentRateCoefficient.toFixed(6);
         }
