@@ -57,7 +57,7 @@
         <p>满减（澳币）: <span id="discount">0</span></p>
         <p>银行卡扣费（澳币）: <span id="audReal">0</span></p>
         <p>银行卡扣费（人民币）: <span id="rmbReal">0</span></p>
-        <p>返现（澳币，0.7%）: <span id="audReturn">0</span></p>
+        <p>返现（澳币，1.2%）: <span id="audReturn">0</span></p>
         <p>真实返现（澳币）: <span id="audRealReturn">0</span></p>
         <p>真实返现率（澳币）: <span id="audRealReturnRate">0%</span></p>
         <p>返现（人民币）: <span id="rmbReturn">0</span></p>
@@ -71,7 +71,7 @@
     <script>
         function calculate() {
             let surchargeRate = 0.022;
-            let returnRate = 0.007;
+            let returnRate = 0.012;
             let exchangeRate = parseFloat(document.getElementById('exchangeRate').value);
             let billAmount = parseFloat(document.getElementById('billAmount').value);
 
@@ -95,11 +95,11 @@
             document.getElementById('rmbReal').innerText = rmbReal.toFixed(2);
             document.getElementById('audReturn').innerText = audReturn.toFixed(2);
             document.getElementById('audRealReturn').innerText = audRealReturn.toFixed(2);
-            document.getElementById('audRealReturnRate').innerText = (audRealReturnRate * 100).toFixed(4) + "%";
+            document.getElementById('audRealReturnRate').innerText = (audRealReturnRate * 100).toFixed(6) + "%";
             document.getElementById('rmbReturn').innerText = rmbReturn.toFixed(2);
             document.getElementById('rmb').innerText = rmb.toFixed(2);
             document.getElementById('equivalentRate').innerText = equivalentRate.toFixed(4);
-            document.getElementById('equivalentRateCoefficient').innerText = (equivalentRateCoefficient * 100).toFixed(4) + "%";
+            document.getElementById('equivalentRateCoefficient').innerText = (equivalentRateCoefficient * 100).toFixed(6) + "%";
         }
     </script>
 </body>
