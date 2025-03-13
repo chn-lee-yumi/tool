@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII to String Converter Online</title>
+    <meta name="description" content="Convert ASCII Code to a String. Convert a String to ASCII Code. ASCII to Text Converter Online.">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 1000px;
+            text-align: center;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        textarea, button {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>ASCII to String Converter</h1>
+    <textarea id="asciiInput" rows="8" placeholder="Enter ASCII codes, separated by spaces" oninput="validateAsciiInput()"></textarea>
+    <button onclick="convertToCharacter()">Convert to Characters</button>
+
+    <textarea id="charInput" rows="8" placeholder="Enter a string"></textarea>
+    <button onclick="convertToASCII()">Convert to ASCII Codes</button>
+
+    <div class="footer">
+        <a href="ascii.html" target="_blank">View ASCII Table</a>
+    </div>
+</div>
+<script>
+    function convertToCharacter() {
+        const asciiInput = document.getElementById("asciiInput").value;
+        const asciiArray = asciiInput.trim().split(/\s+/);
+        const result = asciiArray.map(code => String.fromCharCode(parseInt(code))).join('');
+        document.getElementById("charInput").value = result;
+    }
+
+    function convertToASCII() {
+        const charInput = document.getElementById("charInput").value;
+        const asciiCodes = Array.from(charInput).map(char => char.charCodeAt(0)).join(' ');
+        document.getElementById("asciiInput").value = asciiCodes;
+    }
+
+    function validateAsciiInput() {
+        const inputField = document.getElementById("asciiInput");
+        inputField.value = inputField.value.replace(/[^0-9\s]/g, '');
+    }
+</script>
+</body>
+</html>
