@@ -7,6 +7,7 @@
 工具箱内容包含：
 - [网页版FFmpeg](https://ffmpeg.gcc.ac.cn/index_zh.html) [仓库地址](https://github.com/chn-lee-yumi/ffmpeg_in_browser)
 - [ASCII码转换](https://tool.gcc.ac.cn/zh/ascii.html)
+- [ASCII字符串转换](https://tool.gcc.ac.cn/zh/ascii_string.html)
 - [进制转换](https://tool.gcc.ac.cn/zh/base_converter.html)
 - [base64编解码](https://tool.gcc.ac.cn/zh/base64.html)
 - [UTF-8编码转换](https://tool.gcc.ac.cn/zh/utf8.html)
