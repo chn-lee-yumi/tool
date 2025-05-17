@@ -1,6 +1,7 @@
 https://tool.gcc.ac.cn/index.html
 https://tool.gcc.ac.cn/index_zh.html
 https://tool.gcc.ac.cn/en/ascii.html
+https://tool.gcc.ac.cn/en/ascii_string.html
 https://tool.gcc.ac.cn/en/base64.html
 https://tool.gcc.ac.cn/en/base_converter.html
 https://tool.gcc.ac.cn/en/utf8.html
@@ -9,6 +10,7 @@ https://tool.gcc.ac.cn/en/lcm.html
 https://tool.gcc.ac.cn/en/formatter.html
 https://tool.gcc.ac.cn/en/timestamp.html
 https://tool.gcc.ac.cn/zh/ascii.html
+https://tool.gcc.ac.cn/zh/ascii_string.html
 https://tool.gcc.ac.cn/zh/base64.html
 https://tool.gcc.ac.cn/zh/base_converter.html
 https://tool.gcc.ac.cn/zh/utf8.html
