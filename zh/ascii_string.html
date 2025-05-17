@@ -50,6 +50,25 @@
         .footer {
             margin-top: 20px;
         }
+        .home-button {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            font-size: 16px;
+            z-index: 1000;
+        }
+        .home-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
@@ -65,6 +84,7 @@
         <a href="ascii.html" target="_blank">查看 ASCII 码表</a>
     </div>
 </div>
+<a href="/index_zh.html" class="home-button">返回主页</a>
 <script>
     function convertToCharacter() {
         const asciiInput = document.getElementById("asciiInput").value;

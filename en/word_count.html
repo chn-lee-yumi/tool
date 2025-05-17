@@ -46,6 +46,28 @@
             margin-top: 20px;
             text-align: left;
         }
+        .footer {
+            margin-top: 20px;
+        }
+        .home-button {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            font-size: 16px;
+            z-index: 1000;
+        }
+        .home-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8336276656855850" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DE64VXRT8C"></script>
@@ -63,6 +85,7 @@
         <textarea id="textInput" placeholder="Please Input Text" oninput="countWords()"></textarea>
         <div id="countResults"></div>
     </div>
+    <a href="/" class="home-button">Home</a>
     <script>
         // 初始化页面时执行一次字数统计
         countWords();

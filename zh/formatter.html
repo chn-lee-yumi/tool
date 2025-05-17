@@ -56,6 +56,29 @@
             padding: 5px;
             font-size: 14px;
         }
+
+        .footer {
+            margin-top: 20px;
+        }
+        .home-button {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            font-size: 16px;
+            z-index: 1000;
+        }
+        .home-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8336276656855850" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DE64VXRT8C"></script>
@@ -82,6 +105,10 @@
     <button onclick="copyToClipboard()">Copy Output</button>
     <br>
     <textarea id="outputCode" placeholder="格式化后的代码会显示在这里..." readonly></textarea>
+
+    <div class="footer">
+        <a href="/index_zh.html" class="home-button">返回主页</a>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.13.5/beautify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.13.5/beautify-html.min.js"></script>
