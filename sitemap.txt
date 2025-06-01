@@ -1,4 +1,4 @@
-https://tool.gcc.ac.cn/index.html
+https://tool.gcc.ac.cn/
 https://tool.gcc.ac.cn/index_zh.html
 https://tool.gcc.ac.cn/en/ascii.html
 https://tool.gcc.ac.cn/en/ascii_string.html
