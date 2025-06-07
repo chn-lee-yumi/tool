@@ -6,6 +6,8 @@
 
 工具箱内容包含：
 - [网页版FFmpeg](https://ffmpeg.gcc.ac.cn/index_zh.html) [仓库地址](https://github.com/chn-lee-yumi/ffmpeg_in_browser)
+- [实时工资计算器](https://salary.gcc.ac.cn/) [仓库地址](https://github.com/chn-lee-yumi/salary_calculator)
+- [黄历](https://huangli.gcc.ac.cn/) [仓库地址](https://github.com/chn-lee-yumi/huangli)
 - [ASCII码转换](https://tool.gcc.ac.cn/zh/ascii.html)
 - [ASCII字符串转换](https://tool.gcc.ac.cn/zh/ascii_string.html)
 - [进制转换](https://tool.gcc.ac.cn/zh/base_converter.html)

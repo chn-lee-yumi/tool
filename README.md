@@ -6,6 +6,8 @@ This repository hosts the content for [tool.gcc.ac.cn](https://tool.gcc.ac.cn).
 
 The toolbox includes:
 - [FFmpeg in Browser](https://ffmpeg.gcc.ac.cn/en/index.html) [Repository Link](https://github.com/chn-lee-yumi/ffmpeg_in_browser)
+- [Realtime Salary Calculator](https://salary.gcc.ac.cn/) [Repository Link](https://github.com/chn-lee-yumi/salary_calculator)
+- [Chinese Almanac](https://huangli.gcc.ac.cn/) [Repository Link](https://github.com/chn-lee-yumi/huangli)
 - [ASCII Code Conversion](https://tool.gcc.ac.cn/en/ascii.html)
 - [ASCII to String Converter](https://tool.gcc.ac.cn/en/ascii_string.html)
 - [Number Base Conversion](https://tool.gcc.ac.cn/en/base_converter.html)
