@@ -8,6 +8,7 @@ The toolbox includes:
 - [FFmpeg in Browser](https://ffmpeg.gcc.ac.cn/en/index.html) [Repository Link](https://github.com/chn-lee-yumi/ffmpeg_in_browser)
 - [Realtime Salary Calculator](https://salary.gcc.ac.cn/) [Repository Link](https://github.com/chn-lee-yumi/salary_calculator)
 - [Chinese Almanac](https://huangli.gcc.ac.cn/) [Repository Link](https://github.com/chn-lee-yumi/huangli)
+- [PDF2Word(DOCX)](https://pdf2word.gcc.ac.cn/)
 - [ASCII Code Conversion](https://tool.gcc.ac.cn/en/ascii.html)
 - [ASCII to String Converter](https://tool.gcc.ac.cn/en/ascii_string.html)
 - [Number Base Conversion](https://tool.gcc.ac.cn/en/base_converter.html)
